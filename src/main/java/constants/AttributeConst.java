@@ -48,7 +48,33 @@ public enum AttributeConst {
     REP_ID("id"),
     REP_DATE("report_date"),
     REP_TITLE("title"),
-    REP_CONTENT("content");
+    REP_CONTENT("content"),
+
+    //顧客管理
+    CUSTOMER("customer"),
+    CUSTOMERS("customers"),
+    CUS_COUNT("customers_count"),
+    CUS_ID("id"),
+    CUS_DATE("customer_date"),
+    CUS_NAME("customer_name"),
+    CUS_KANA("customer_kana"),
+    CUS_COM("company_name"),
+    CUS_PHONE("phone_number"),
+    CUS_MOBILE("mobile_number"),
+    CUS_CONTENT("content"),
+
+
+    //商談管理
+    NEGOTIATION("negotiation"),
+    NEGOTIATIONS("negotiations"),
+    NEG_COUNT("negotiations_count"),
+    NEG_ID("id"),
+    NEG_DATE("negotiation_date"),
+    NEG_SALES("sales_rep"),
+    NEG_COMPANY("company_name"),
+    NEG_STATUS("negotiation_status"),
+    NEG_CONTENT("content");
+
 
     private final String text;
     private final Integer i;

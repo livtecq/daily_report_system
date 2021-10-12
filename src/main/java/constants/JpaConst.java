@@ -40,9 +40,38 @@ public interface JpaConst {
     String REP_COL_CREATED_AT = "created_at"; //登録日時
     String REP_COL_UPDATED_AT = "updated_at"; //更新日時
 
+    //顧客テーブル
+    String TABLE_CUS = "customers"; //テーブル名
+    //顧客テーブルカラム
+    String CUS_COL_ID = "id"; //id
+    String CUS_COL_EMP = "employee_id"; //顧客を作成した従業員のid
+    String CUS_COL_CUS_DATE = "customer_date"; //いつの顧客情報かを示す日付
+    String CUS_COL_CUS_NAME = "customer_name"; //顧客名
+    String CUS_COL_CUS_KANA = "customer_kana"; //顧客カナ
+    String CUS_COL_COM_NAME = "company_name"; //会社名
+    String CUS_COL_CUS_PHONE = "phone_number"; //固定電話
+    String CUS_COL_CUS_MOBILE = "mobile_number"; //携帯番号
+    String CUS_COL_CREATED_AT = "created_at"; //登録日時
+    String CUS_COL_UPDATED_AT = "updated_at"; //更新日時
+
+    //商談テーブル
+    String TABLE_NEG = "negotiations"; //テーブル名
+    //商談テーブルカラム
+    String NEG_COL_ID = "id"; //id
+    String NEG_COL_EMP = "employee_id"; //商談を作成した従業員のid
+    String NEG_COL_NEG_DATE = "negotiation_date"; //いつの商談かを示す日付
+    String NEG_COL_SALES_REP = "sales_rep"; //営業担当
+    String NEG_COL_COM_NAME = "company_name"; //会社名
+    String NEG_COL_NEG_STA = "negotiation_status"; //商談状況
+    String NEG_COL_CONTENT = "content"; //商談の内容
+    String NEG_COL_CREATED_AT = "created_at"; //登録日時
+    String NEG_COL_UPDATED_AT = "updated_at"; //更新日時
+
     //Entity名
     String ENTITY_EMP = "employee"; //従業員
     String ENTITY_REP = "report"; //日報
+    String ENTITY_CUS = "customer"; //顧客
+    String ENTITY_NEG = "negotiation"; //商談
 
     //JPQL内パラメータ
     String JPQL_PARM_CODE = "code"; //社員番号
@@ -74,5 +103,34 @@ public interface JpaConst {
     //指定した従業員が作成した日報の件数を取得する
     String Q_REP_COUNT_ALL_MINE = ENTITY_REP + ".countAllMine";
     String Q_REP_COUNT_ALL_MINE_DEF = "SELECT COUNT(r) FROM Report AS r WHERE r.employee = :" + JPQL_PARM_EMPLOYEE;
+    //全ての顧客をidの降順に取得する
+    String Q_CUS_GET_ALL = ENTITY_CUS + ".getAll";
+    String Q_CUS_GET_ALL_DEF = "SELECT r FROM Customer AS r ORDER BY r.id DESC";
+    //全ての顧客の件数を取得する
+    String Q_CUS_COUNT = ENTITY_CUS + ".count";
+    String Q_CUS_COUNT_DEF = "SELECT COUNT(r) FROM Customer AS r";
+    //指定した従業員が作成した顧客を全件idの降順で取得する
+    String Q_CUS_GET_ALL_MINE = ENTITY_CUS + ".getAllMine";
+    String Q_CUS_GET_ALL_MINE_DEF = "SELECT r FROM Customer AS r WHERE r.employee = :" + JPQL_PARM_EMPLOYEE + " ORDER BY r.id DESC";
+    //指定した従業員が作成した顧客の件数を取得する
+    String Q_CUS_COUNT_ALL_MINE = ENTITY_CUS + ".countAllMine";
+    String Q_CUS_COUNT_ALL_MINE_DEF = "SELECT COUNT(r) FROM Customer AS r WHERE r.employee = :" + JPQL_PARM_EMPLOYEE;
+    //全ての商談をidの降順に取得する
+    String Q_NEG_GET_ALL = ENTITY_NEG + ".getAll";
+    String Q_NEG_GET_ALL_DEF = "SELECT r FROM Negotiation AS r ORDER BY r.id DESC";
+    //全ての商談の件数を取得する
+    String Q_NEG_COUNT = ENTITY_NEG + ".count";
+    String Q_NEG_COUNT_DEF = "SELECT COUNT(r) FROM Negotiation AS r";
+    //指定した従業員が作成した商談を全件idの降順で取得する
+    String Q_NEG_GET_ALL_MINE = ENTITY_NEG + ".getAllMine";
+    String Q_NEG_GET_ALL_MINE_DEF = "SELECT r FROM Negotiation AS r WHERE r.employee = :" + JPQL_PARM_EMPLOYEE + " ORDER BY r.id DESC";
+    //指定した従業員が作成した商談の件数を取得する
+    String Q_NEG_COUNT_ALL_MINE = ENTITY_NEG + ".countAllMine";
+    String Q_NEG_COUNT_ALL_MINE_DEF = "SELECT COUNT(r) FROM Negotiation AS r WHERE r.employee = :" + JPQL_PARM_EMPLOYEE;
+    //商談を作成する従業員が会社名を全件取得する
+    String Q_NEG_GET_LIST = ENTITY_CUS + ".getList";
+    String Q_NEG_GET_LIST_MINE_DEF = "SELECT company_name FROM customer";
+
+
 
 }

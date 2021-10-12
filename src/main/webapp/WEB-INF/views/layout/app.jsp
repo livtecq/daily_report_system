@@ -6,6 +6,8 @@
 <c:set var="actTop" value="${ForwardConst.ACT_TOP.getValue()}" />
 <c:set var="actEmp" value="${ForwardConst.ACT_EMP.getValue()}" />
 <c:set var="actRep" value="${ForwardConst.ACT_REP.getValue()}" />
+<c:set var="actCus" value="${ForwardConst.ACT_CUS.getValue()}" />
+<c:set var="actNeg" value="${ForwardConst.ACT_NEG.getValue()}" />
 <c:set var="actAuth" value="${ForwardConst.ACT_AUTH.getValue()}" />
 
 <c:set var="commIdx" value="${ForwardConst.CMD_INDEX.getValue()}" />
@@ -29,6 +31,8 @@
                         <a href="<c:url value='?action=${actEmp}&command=${commIdx}' />">従業員管理</a>&nbsp;
                     </c:if>
                     <a href="<c:url value='?action=${actRep}&command=${commIdx}' />">日報管理</a>&nbsp;
+                    <a href="<c:url value='?action=${actCus}&command=${commIdx}' />">顧客管理</a>&nbsp;
+                    <a href="<c:url value='?action=${actNeg}&command=${commIdx}' />">商談管理</a>&nbsp;
                 </c:if>
             </div>
             <c:if test="${sessionScope.login_employee != null}">
