@@ -22,11 +22,11 @@
 <br /><br />
 
 
-<label for="${AttributeConst.NEG_COMPANY.getValue()}">会社名</label><br />
-<select name="${AttributeConst.NEG_COMPANY.getValue()}">
+<label for="${AttributeConst.NEG_CUS_ID.getValue()}">会社名</label><br />
+<select name="${AttributeConst.NEG_CUS_ID.getValue()}">
 <option hidden></option>
 <c:forEach var="customer" items="${customers}" varStatus="status">
-<option><c:out value="${customer.companyName}" /></option>
+<option value="${customer.id}"><c:out value="${customer.companyName}" /></option>
 </c:forEach>
 </select>
 <br /><br />

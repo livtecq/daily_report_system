@@ -31,7 +31,7 @@
                     <tr class="row${status.count % 2}">
                         <td class="sales_rep"><c:out value="${negotiation.salesRep}" /></td>
                         <td class="negotiation_date"><fmt:formatDate value='${negotiationDay}' pattern='yyyy-MM-dd' /></td>
-                        <td class="company_name"><c:out value="${negotiation.companyName}" /></td>
+                        <td class="customer_id"><c:out value="${negotiation.customerId.companyName}" /></td>
                         <td class="negotiation_status"><c:out value="${negotiation.negotiationStatus}" /></td>
                         <td class="negotiation_action"><a href="<c:url value='?action=${actNeg}&command=${commShow}&id=${negotiation.id}' />">詳細を見る</a></td>
                     </tr>

@@ -29,7 +29,7 @@
                 </tr>
                 <tr>
                     <th>会社名</th>
-                    <td><pre><c:out value="${negotiation.companyName}" /></pre></td>
+                    <td><pre><c:out value="${negotiation.customerId.companyName}" /></pre></td>
                 </tr>
                 <tr>
                     <th>商談状況</th>
