@@ -78,8 +78,9 @@ public class Negotiation {
     /**
      * 会社名
      */
-    @Column(name = JpaConst.NEG_COL_COM_NAME, length = 255, nullable = false)
-    private String companyName;
+    @ManyToOne
+    @JoinColumn(name = JpaConst.NEG_COL_CUS_ID, nullable = false)
+    private Customer customerId;
 
     /**
      * 商談状況

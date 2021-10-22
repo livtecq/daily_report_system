@@ -41,7 +41,7 @@ public class NegotiationView {
     /**
      * 会社名
      */
-    private String companyName;
+    private CustomerView customerId;
 
     /**
      * 商談状況
