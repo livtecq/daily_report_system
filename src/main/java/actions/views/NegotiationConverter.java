@@ -22,7 +22,7 @@ public class NegotiationConverter {
                 EmployeeConverter.toModel(rv.getEmployee()),
                 rv.getNegotiationDate(),
                 rv.getSalesRep(),
-                rv.getCompanyName(),
+                CustomerConverter.toModel(rv.getCustomerId()),
                 rv.getNegotiationStatus(),
                 rv.getContent(),
                 rv.getCreatedAt(),
@@ -45,7 +45,7 @@ public class NegotiationConverter {
                 EmployeeConverter.toView(r.getEmployee()),
                 r.getNegotiationDate(),
                 r.getSalesRep(),
-                r.getCompanyName(),
+                CustomerConverter.toView(r.getCustomerId()),
                 r.getNegotiationStatus(),
                 r.getContent(),
                 r.getCreatedAt(),
@@ -77,7 +77,7 @@ public class NegotiationConverter {
         r.setEmployee(EmployeeConverter.toModel(rv.getEmployee()));
         r.setNegotiationDate(rv.getNegotiationDate());
         r.setSalesRep(rv.getSalesRep());
-        r.setCompanyName(rv.getCompanyName());
+        r.setCustomerId(CustomerConverter.toModel(rv.getCustomerId()));
         r.setNegotiationStatus(rv.getNegotiationStatus());
         r.setContent(rv.getContent());
         r.setCreatedAt(rv.getCreatedAt());
@@ -95,7 +95,7 @@ public class NegotiationConverter {
         rv.setEmployee(EmployeeConverter.toView(r.getEmployee()));
         rv.setNegotiationDate(r.getNegotiationDate());
         rv.setSalesRep(r.getSalesRep());
-        rv.setCompanyName(r.getCompanyName());
+        r.setCustomerId(CustomerConverter.toModel(rv.getCustomerId()));
         rv.setNegotiationStatus(r.getNegotiationStatus());
         rv.setContent(r.getContent());
         rv.setCreatedAt(r.getCreatedAt());

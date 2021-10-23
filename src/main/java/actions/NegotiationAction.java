@@ -87,6 +87,8 @@ public class NegotiationAction extends ActionBase {
 
         //セッションからログイン中の従業員情報を取得
         EmployeeView ev = (EmployeeView) getSessionScope(AttributeConst.LOGIN_EMP);
+        CustomerView ci = new CustomerView();
+        ci.setId(toNumber(getRequestParam(AttributeConst.NEG_CUS_ID)));
 
         //パラメータの値をもとに商談情報のインスタンスを作成する
         NegotiationView rv = new NegotiationView(
@@ -94,7 +96,7 @@ public class NegotiationAction extends ActionBase {
                 ev, //ログインしている従業員を、商談作成者として登録する
                 day,
                 getRequestParam(AttributeConst.NEG_SALES),
-                getRequestParam(AttributeConst.NEG_COMPANY),
+                ci,
                 getRequestParam(AttributeConst.NEG_STATUS),
                 getRequestParam(AttributeConst.NEG_CONTENT),
                 null,
@@ -220,11 +222,13 @@ public class NegotiationAction extends ActionBase {
 
             //idを条件に商談データを取得する
             NegotiationView rv = service.findOne(toNumber(getRequestParam(AttributeConst.REP_ID)));
+            CustomerView ci = new CustomerView();
+            ci.setId(toNumber(getRequestParam(AttributeConst.NEG_CUS_ID)));
 
-            //入力された日報内容を設定する
+            //入力された商談内容を設定する
             rv.setNegotiationDate(toLocalDate(getRequestParam(AttributeConst.NEG_DATE)));
             rv.setSalesRep(getRequestParam(AttributeConst.NEG_SALES));
-            rv.setCompanyName(getRequestParam(AttributeConst.NEG_COMPANY));
+            rv.setCustomerId(ci);
             rv.setNegotiationStatus(getRequestParam(AttributeConst.NEG_STATUS));
             rv.setContent(getRequestParam(AttributeConst.NEG_CONTENT));
 
@@ -238,7 +242,7 @@ public class NegotiationAction extends ActionBase {
 
                 putRequestScope(AttributeConst.CUSTOMERS, Customers); //取得した顧客データ
                 putRequestScope(AttributeConst.TOKEN, getTokenId()); //CSRF対策用トークン
-                putRequestScope(AttributeConst.NEGOTIATION, rv); //入力された日報情報
+                putRequestScope(AttributeConst.NEGOTIATION, rv); //入力された商談情報
                 putRequestScope(AttributeConst.ERR, errors); //エラーのリスト
 
                 //編集画面を再表示
