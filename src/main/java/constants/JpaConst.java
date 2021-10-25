@@ -61,7 +61,7 @@ public interface JpaConst {
     String NEG_COL_EMP = "employee_id"; //商談を作成した従業員のid
     String NEG_COL_NEG_DATE = "negotiation_date"; //いつの商談かを示す日付
     String NEG_COL_SALES_REP = "sales_rep"; //営業担当
-    String NEG_COL_COM_NAME = "company_name"; //会社名
+    String NEG_COL_CUS_ID = "customer_id"; //顧客ID
     String NEG_COL_NEG_STA = "negotiation_status"; //商談状況
     String NEG_COL_CONTENT = "content"; //商談の内容
     String NEG_COL_CREATED_AT = "created_at"; //登録日時

@@ -71,7 +71,7 @@ public enum AttributeConst {
     NEG_ID("id"),
     NEG_DATE("negotiation_date"),
     NEG_SALES("sales_rep"),
-    NEG_COMPANY("company_name"),
+    NEG_CUS_ID("customer_id"),
     NEG_STATUS("negotiation_status"),
     NEG_CONTENT("content");
 
