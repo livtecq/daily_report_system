@@ -3,6 +3,7 @@ package models.validators;
 import java.util.ArrayList;
 import java.util.List;
 
+import actions.views.CustomerView;
 import actions.views.NegotiationView;
 import constants.MessageConst;
 
@@ -26,9 +27,9 @@ public class NegotiationValidator {
         }
 
         //会社名のチェック
-        String companyNameError = validateCompanyName(rv.getCompanyName());
-        if (!companyNameError.equals("")) {
-            errors.add(companyNameError);
+        String customerIdError = validateCustomerId(rv.getCustomerId());
+        if (!customerIdError.equals("")) {
+            errors.add(customerIdError);
         }
 
         //内容のチェック
@@ -56,11 +57,11 @@ public class NegotiationValidator {
 
     /**
      * 会社名に入力値があるかをチェックし、入力値がなければエラーメッセージを返却
-     * @param company 内容
+     * @param customerId 会社名
      * @return エラーメッセージ
      */
-    private static String validateCompanyName(String companyName) {
-        if (companyName == null || companyName.equals("")) {
+    private static String validateCustomerId(CustomerView customerId) {
+        if (customerId == null || Integer.MIN_VALUE == customerId.getId()) {
             return MessageConst.E_COMPANYNAME.getMessage();
         }
 
