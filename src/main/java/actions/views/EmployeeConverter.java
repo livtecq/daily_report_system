@@ -19,6 +19,9 @@ public class EmployeeConverter {
      * @return Employeeのインスタンス
      */
     public static Employee toModel(EmployeeView ev) {
+        if(ev == null) {
+            return null;
+        }
 
         return new Employee(
                 ev.getId(),
